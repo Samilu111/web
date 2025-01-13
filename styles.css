@@ -328,3 +328,83 @@ form button:hover {
     background: #cc5200;
 }
 
+@media (max-width: 1024px) {
+    #hero h1 {
+        font-size: 1.8rem;
+        margin-right: 30rem;
+    }
+
+    #hero p {
+        font-size: 0.9rem;
+        margin-right: 20rem;
+    }
+
+    #hero .button {
+        margin-right: 40rem; 
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left, .right {
+        width: 90%; 
+        margin: 10px 0;
+    }
+
+    #features ul li {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 1.5rem;
+        margin-right: 20rem;
+    }
+
+    #hero p {
+        font-size: 0.8rem;
+    }
+
+    #hero .button {
+        margin-right: 30rem;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .left, .right {
+        width: 100%; 
+    }
+
+    #features ul li {
+        margin-right: 0;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul li {
+        margin: 0 5px;
+    }
+
+    #hero h1 {
+        font-size: 1.2rem;
+        margin-right: 10rem;
+    }
+
+    #hero p {
+        font-size: 0.7rem;
+    }
+
+    #hero .button {
+        margin-right: 20rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
