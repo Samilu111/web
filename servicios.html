@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orixes - Servicios</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #foto {
+            text-align: center;
+            background-image: url('foto.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: rgb(255, 237, 213);
+            box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 492px;
+            margin: 0 auto;
+        }
+
+        #foto h1 {
+            font-size: 2.2rem;
+            margin-top: 215px;
+        }
+
+        #foto p {
+            font-size: 1rem;
+            margin-bottom: 2.3rem;
+        }
+
+        #foto .button {
+            display: inline-block;
+            margin-top: 1px;
+            padding: 10px 2.34rem;
+            background: rgb(249, 115, 22);
+            color: rgb(255, 237, 213);
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        #foto .button:hover {
+            background-color: rgb(255, 183, 77);
+        }
+
+        #planes {
+            padding: 50px 20px;
+        }
+
+        #planes h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .plan {
+            background-color: #111;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .plan h3 {
+            color: #fff;
+        }
+
+        .plan p {
+            color: #f97316;
+        }
+
+        .plan .price {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .plan ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .plan ul li {
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        /* Carrusel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #111;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 300px; /* Ajusta la altura del carrusel */
+            object-fit: cover; /* Mantiene la proporción sin distorsionar la imagen */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-item h3 {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .carousel-item p {
+            color: #f97316;
+            font-size: 1.2rem;
+        }
+
+        .carousel-item .price {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+        }
+
+        .carousel-controls button:hover {
+            background-color: rgb(249, 115, 22);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsividad */
+        @media (min-width: 768px) {
+            #planes {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            #foto h1, #foto p, #foto .button {
+                margin-right: 0; /* Ajustes para evitar desbordes */
+            }
+        }
+
+        /* Estilos para la galería */
+        #galeria {
+            padding: 50px 20px;
+            background-color: #111;
+            text-align: center;
+        }
+
+        #galeria h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .galeria-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 200px; /* Ajusta la altura de las imágenes en la galería */
+            object-fit: cover; /* Mantiene la proporción sin distorsionar la imagen */
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: #000000;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <h1 id="titulo">Orixes</h1>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="foto">
+        <p>Descubre cómo podemos ayudarte a explorar tu historia familiar.</p>
+        <h1>Nuestros Servicios</h1>
+        <a href="#planes" class="button">Explorar Planes</a>
+    </section>
+
+    <section id="planes">
+        <h2>Nuestros Planes</h2>
+
+        <div class="plan">
+            <h3>Básico</h3>
+            <p>Incluye acceso a registros básicos y un árbol genealógico inicial.</p>
+            <div class="price">$100</div>
+            <ul>
+                <li>Árbol inicial</li>
+                <li>Registros básicos</li>
+                <li>Soporte básico</li>
+            </ul>
+        </div>
+
+        <div class="plan">
+            <h3>Intermedio</h3>
+            <p>Acceso a registros detallados y análisis de datos familiares.</p>
+            <div class="price">$200</div>
+            <ul>
+                <li>Árbol avanzado</li>
+                <li>Registros detallados</li>
+                <li>Análisis genealógico</li>
+            </ul>
+        </div>
+
+        <div class="plan">
+            <h3>Avanzado</h3>
+            <p>Incluye viajes personalizados y exploración de lugares históricos.</p>
+            <div class="price">$300</div>
+            <ul>
+                <li>Viajes personalizados</li>
+                <li>Exploración histórica</li>
+                <li>Soporte premium</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="carousel-container">
+        <div class="carousel">
+            <!-- Carrusel con hasta 10 planes -->
+            <div class="carousel-item">
+                <img src="foto1.jpg" alt="Plan 1">
+                <h3>Plan Personalizado</h3>
+                <p>Explora tus raíces con un servicio completamente personalizado.</p>
+                <div class="price">$150</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto2.jpg" alt="Plan 2">
+                <h3>Exploración de Registros</h3>
+                <p>Acceso a registros históricos detallados y análisis profundo.</p>
+                <div class="price">$250</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto3.jpg" alt="Plan 3">
+                <h3>Viaje Histórico</h3>
+                <p>Viaja a lugares históricos relacionados con tu genealogía.</p>
+                <div class="price">$350</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto4.jpg" alt="Plan 4">
+                <h3>Plan Genealógico Global</h3>
+                <p>Accede a registros internacionales y análisis completo de tu árbol.</p>
+                <div class="price">$450</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto5.jpg" alt="Plan 5">
+                <h3>Exploración de Ancestros</h3>
+                <p>Explora tus ancestros con ayuda de expertos históricos.</p>
+                <div class="price">$500</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto6.jpg" alt="Plan 6">
+                <h3>Investigación Profunda</h3>
+                <p>Realiza investigaciones profundas sobre tu linaje.</p>
+                <div class="price">$600</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto7.jpg" alt="Plan 7">
+                <h3>Plan Premium</h3>
+                <p>Acceso completo a recursos exclusivos para tu investigación.</p>
+                <div class="price">$700</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto8.jpg" alt="Plan 8">
+                <h3>Recorrido de Raíces</h3>
+                <p>Viaja y conoce los lugares más importantes de tu historia familiar.</p>
+                <div class="price">$800</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto9.jpg" alt="Plan 9">
+                <h3>Investigación Personalizada</h3>
+                <p>Servicio completamente adaptado a tus necesidades genealógicas.</p>
+                <div class="price">$900</div>
+            </div>
+            <div class="carousel-item">
+                <img src="foto10.jpg" alt="Plan 10">
+                <h3>Plan VIP</h3>
+                <p>Acceso exclusivo y soporte personalizado para un estudio de fondo.</p>
+                <div class="price">$1000</div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería de Lugares Históricos</h2>
+        <div class="galeria-container">
+            <!-- 20 fotos agregadas -->
+            <div class="galeria-item"><img src="lugar1.jpg" alt="Lugar Histórico 1"></div>
+            <div class="galeria-item"><img src="lugar2.jpg" alt="Lugar Histórico 2"></div>
+            <div class="galeria-item"><img src="lugar3.jpg" alt="Lugar Histórico 3"></div>
+            <div class="galeria-item"><img src="lugar4.jpg" alt="Lugar Histórico 4"></div>
+            <div class="galeria-item"><img src="lugar5.jpg" alt="Lugar Histórico 5"></div>
+            <div class="galeria-item"><img src="lugar6.jpg" alt="Lugar Histórico 6"></div>
+            <div class="galeria-item"><img src="lugar7.jpg" alt="Lugar Histórico 7"></div>
+            <div class="galeria-item"><img src="lugar8.jpg" alt="Lugar Histórico 8"></div>
+            <div class="galeria-item"><img src="lugar9.jpg" alt="Lugar Histórico 9"></div>
+            <div class="galeria-item"><img src="lugar10.jpg" alt="Lugar Histórico 10"></div>
+            <div class="galeria-item"><img src="lugar11.jpg" alt="Lugar Histórico 11"></div>
+            <div class="galeria-item"><img src="lugar12.jpg" alt="Lugar Histórico 12"></div>
+            <div class="galeria-item"><img src="lugar13.jpg" alt="Lugar Histórico 13"></div>
+            <div class="galeria-item"><img src="lugar14.jpg" alt="Lugar Histórico 14"></div>
+            <div class="galeria-item"><img src="lugar15.jpg" alt="Lugar Histórico 15"></div>
+            <div class="galeria-item"><img src="lugar16.jpg" alt="Lugar Histórico 16"></div>
+        </div>
+    </section>
+<div class="footer1">
+    <footer>
+        <p>&copy; 2025 Orixes. Todos los derechos reservados.</p>
+    </footer>
+</div>
+    <script>
+        // Carrusel de imágenes
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+        const carousel = document.querySelector(".carousel");
+
+        let index = 0;
+
+        prevButton.addEventListener("click", () => {
+            index--;
+            if (index < 0) index = 9; // 10 elementos en total
+            updateCarousel();
+        });
+
+        nextButton.addEventListener("click", () => {
+            index++;
+            if (index > 9) index = 0;
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+</body>
+</html>
